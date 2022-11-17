@@ -6,7 +6,8 @@ RUN apt-get update && \
     libx11-6 libx11-xcb1 libxcomposite1 libxcursor1 \
     libxdamage1 libxi6 libxtst6 libglib2.0-0 libcups2 \
     libxrandr2 libasound2 libatk1.0-0 libgdk-pixbuf2.0-0 \
-    libpango-1.0-0 libpangocairo-1.0-0 libgtk-3-0 libnss3 libxss1 && \
+    libpango-1.0-0 libpangocairo-1.0-0 libgtk-3-0 libnss3 libxss1 \
+    libdrm2 libgbm1 && \
     rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /app && chown -R node:node /app
