@@ -1,16 +1,16 @@
-name: Build Master
+name: Build Main
 
 on:
   push:
     branches: 
-        - master
+        - main
     # tags:
     #     - 'v*'
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: GitHub.ref == 'refs/heads/master' || GitHub.event_name == 'push'
+    if: GitHub.ref == 'refs/heads/main' || GitHub.event_name == 'push'
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -25,7 +25,7 @@ jobs:
         with:
           images: mschirrmeister/fast-cli
           tags: |
-            type=raw,value=latest,enable=${{ endsWith(GitHub.ref, 'master') }}
+            type=raw,value=latest,enable=${{ endsWith(GitHub.ref, 'main') }}
             type=ref,event=tag
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
